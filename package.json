@@ -1,0 +1,21 @@
+{
+  "name": "eddy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/server/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon ./src/server/server.js",
+    "lint": "eslint src/"
+  },
+  "author": "Tom Hinton",
+  "license": "ISC",
+  "dependencies": {
+    "awilix": "^4.2.6",
+    "awilix-express": "^3.0.0",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.3.1"
+  }
+}
