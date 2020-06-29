@@ -5,7 +5,7 @@
   "main": "src/server/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon ./src/server/server.js",
+    "dev": "nodemon ./src/server/server.js --inspect",
     "lint": "eslint src/"
   },
   "author": "Tom Hinton",
@@ -16,7 +16,6 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-session": "^1.17.1",
-    "mongodb": "^3.5.9",
     "mongoose": "^5.9.20",
     "uuid": "^8.2.0"
   },

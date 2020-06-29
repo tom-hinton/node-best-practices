@@ -1,8 +1,7 @@
-const makeCoursesRepo = function( { db } ) {
+const makeCoursesRepo = function( { CourseModel } ) {
+
 	return {
-		find: async () => await db.collection( 'courses' )
-			.find( {} )
-			.toArray()
+		find: async () => await CourseModel.find()
 			.then( ( docs ) => docs )
 	}
 }

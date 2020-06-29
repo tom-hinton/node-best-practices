@@ -1,15 +1,15 @@
-const { createContainer, asFunction, asValue } = require( 'awilix' )
-const { makeDatabaseConnection } = require( './libs/database' )
-const { makeCoursesService, makeCoursesRepo } = require( './components/courses' )
+const { createContainer, asFunction, asClass } = require( 'awilix' )
+const { DatabaseConnection } = require( './libs/database' )
+const { makeCoursesService, makeCoursesRepo, makeCourseModel } = require( './components/courses' )
 
-const makeContainer = async function() {
-	const db = await makeDatabaseConnection()
+const makeContainer = function() {
 
 	const container = createContainer()
 	container.register( {
-		db: asValue( db ),
 		coursesService: asFunction( makeCoursesService ).scoped(),
-		coursesRepo: asFunction( makeCoursesRepo ).singleton()
+		coursesRepo: asFunction( makeCoursesRepo ).singleton(),
+		CourseModel: asFunction( makeCourseModel ).singleton(),
+		databaseConnection: asClass( DatabaseConnection ).singleton()
 	} )
 
 	return container
