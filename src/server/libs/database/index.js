@@ -1,3 +1,3 @@
 module.exports = {
-	DatabaseConnection: require( './mongoose' )
+	databaseConnection: require( './mongoose' )
 }

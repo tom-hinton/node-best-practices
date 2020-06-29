@@ -1,5 +1,4 @@
-const { createContainer, asFunction, asClass } = require( 'awilix' )
-const { DatabaseConnection } = require( './libs/database' )
+const { createContainer, asFunction } = require( 'awilix' )
 const { makeCourseService, makeCourseRepo, makeCourseModel } = require( './components/course' )
 
 const makeContainer = function() {
@@ -8,8 +7,7 @@ const makeContainer = function() {
 	container.register( {
 		courseService: asFunction( makeCourseService ).scoped(),
 		courseRepo: asFunction( makeCourseRepo ).singleton(),
-		CourseModel: asFunction( makeCourseModel ).singleton(),
-		databaseConnection: asClass( DatabaseConnection ).singleton()
+		CourseModel: asFunction( makeCourseModel ).singleton()
 	} )
 
 	return container
