@@ -1,4 +1,4 @@
-const makeCoursesRepo = function( { CourseModel } ) {
+const makeCourseRepo = function( { CourseModel } ) {
 
 	return {
 		find: async () => await CourseModel.find()
@@ -6,4 +6,4 @@ const makeCoursesRepo = function( { CourseModel } ) {
 	}
 }
 
-module.exports = makeCoursesRepo
+module.exports = makeCourseRepo

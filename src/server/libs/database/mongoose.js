@@ -2,7 +2,10 @@ const mongoose = require( 'mongoose' )
 
 class DatabaseConnection {
 	constructor() {
-		mongoose.connect( process.env.DATABASE_URL, { useNewUrlParser: true } )
+		mongoose.connect( process.env.DATABASE_URL, {
+			useNewUrlParser: true,
+			useUnifiedTopology: true
+		} )
 			.catch( e => console.error( e ) )
 
 		this.conn = mongoose.connection

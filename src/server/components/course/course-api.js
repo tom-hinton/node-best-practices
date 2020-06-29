@@ -1,13 +1,13 @@
 const { createController } = require( 'awilix-express' )
 
-const makeCoursesApi = function( { coursesService } ) {
+const makeCourseApi = function( { courseService } ) {
 	return {
 		findCourses: async ( req, res ) => res.send(
-			await coursesService.getCourses()
+			await courseService.getCourses()
 		)
 	}
 }
 
-module.exports = createController( makeCoursesApi )
+module.exports = createController( makeCourseApi )
 	.prefix( '/courses' )
 	.get( '', 'findCourses' )
