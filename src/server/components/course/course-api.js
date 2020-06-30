@@ -1,4 +1,5 @@
 const { createController } = require( 'awilix-express' )
+const { authorizationMiddleware } = require( '../user' )
 
 const makeCourseApi = function( { courseService } ) {
 	return {
@@ -10,4 +11,5 @@ const makeCourseApi = function( { courseService } ) {
 
 module.exports = createController( makeCourseApi )
 	.prefix( '/courses' )
+	.before( authorizationMiddleware )
 	.get( '', 'findCourses' )
