@@ -5,6 +5,10 @@ require( 'dotenv' ).config()
 const express = require( 'express' )
 const server = express()
 
+// Serve browser application
+const path = require( 'path' )
+server.use( express.static( path.join( __dirname, '../../dist' ) ) )
+
 // Connect database
 const { databaseConnection } = require( './libs/database' )
 
@@ -28,9 +32,6 @@ const container = require( './container.js' )()
 const { loadControllers, scopePerRequest } = require( 'awilix-express' )
 server.use( scopePerRequest( container ) )
 server.use( loadControllers( 'components/*/*-api.js', { cwd: __dirname } ) )
-
-// Serve browser application
-server.get( '/', ( req, res ) => res.send( 'Talking to Eddy at root' ) )
 
 // Start server
 const port = 3000
